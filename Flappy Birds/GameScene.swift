@@ -89,7 +89,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let birdTexture2 = SKTexture(imageNamed: "flappy2.png")
         
-        let birdAnimation = SKAction.animateWithTextures([birdTexture, birdTexture2], timePerFrame: 0.1)
+        let birdTexture3 = SKTexture(imageNamed: "flappy3.png")
+        
+        let birdAnimation = SKAction.animateWithTextures([birdTexture, birdTexture2, birdTexture3], timePerFrame: 0.2)
         
         let makeBirdFlap = SKAction.repeatActionForever(birdAnimation)
         
@@ -99,7 +101,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         bird.runAction(makeBirdFlap)
         
-        bird.physicsBody = SKPhysicsBody(circleOfRadius: birdTexture.size().height/2)
+        bird.physicsBody = SKPhysicsBody(circleOfRadius: birdTexture.size().height/3)
         bird.physicsBody!.dynamic = true
         bird.physicsBody!.allowsRotation = false
         
@@ -138,7 +140,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func makePipes(){
         
-        let gapHeight = bird.size.height * 4
+        let gapHeight = bird.size.height * 3
         
         let movementAmount = arc4random() % UInt32(self.frame.size.height / 2)
         
